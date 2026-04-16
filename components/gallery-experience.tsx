@@ -22,16 +22,16 @@ export function GalleryExperience({
       : images.filter((image) => image.category === activeCategory);
 
   return (
-    <section className="shell pb-16 sm:pb-20 lg:pb-24">
-      <SectionReveal className="border-y border-white/10 py-8">
+    <section className="shell pb-12 sm:pb-20 lg:pb-24">
+      <SectionReveal className="border-y border-white/10 py-6 sm:py-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <p className="font-sans text-[11px] uppercase tracking-[0.3em] text-[#d04c57]">
-              Parcours par univers
+              Galeries photos par event
             </p>
-            <p className="mt-4 text-[1rem] leading-8 text-[#c6c6c6]">
-              Passe d&apos;une ambiance à l&apos;autre selon les séries présentes dans
-              les dossiers source du press kit.
+            <p className="mt-3 text-[0.98rem] leading-7 text-[#c6c6c6] sm:mt-4 sm:text-[1rem] sm:leading-8">
+              Capable de s&apos;adapter à tout type d&apos;event, voici un aperçu photo
+              du travail d&apos;Izzy Lokko.
             </p>
           </div>
 
@@ -66,9 +66,9 @@ export function GalleryExperience({
         </div>
       </SectionReveal>
 
-      <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3">
+      <div className="mt-8 columns-1 gap-3 sm:mt-10 sm:gap-4 sm:columns-2 lg:columns-3">
         {filteredImages.map((image, index) => (
-          <SectionReveal key={image.src} delay={(index % 6) * 0.04} className="mb-4 break-inside-avoid">
+          <SectionReveal key={image.src} delay={(index % 6) * 0.04} className="mb-3 break-inside-avoid sm:mb-4">
             <article className="group relative overflow-hidden border border-white/10 bg-black">
               <div className="relative aspect-[4/5]">
                 <Image

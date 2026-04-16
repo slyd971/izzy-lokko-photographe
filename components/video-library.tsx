@@ -10,7 +10,6 @@ function VideoCard({
   title,
   src,
   tag,
-  description,
   isPlaying,
   onToggle,
   register,
@@ -20,7 +19,6 @@ function VideoCard({
   title: string;
   src: string;
   tag: string;
-  description: string;
   isPlaying: boolean;
   onToggle: (id: string) => Promise<void>;
   register: (id: string, node: HTMLVideoElement | null) => void;
@@ -28,57 +26,41 @@ function VideoCard({
 }) {
   return (
     <article className="overflow-hidden border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] shadow-[0_30px_80px_rgba(0,0,0,0.3)]">
-      <div
-        onClick={() => void onToggle(id)}
-        onKeyDown={(event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            void onToggle(id);
-          }
-        }}
-        className="block w-full cursor-pointer text-left"
-        role="button"
-        tabIndex={0}
-        aria-label={`${isPlaying ? "Mettre en pause" : "Lire"} ${title}`}
-      >
-        <div className="relative mx-auto aspect-[9/16] w-full max-w-[26rem] bg-black">
-          <video
-            ref={(node) => register(id, node)}
-            className="h-full w-full object-cover"
-            preload="metadata"
-            playsInline
-            onPause={() => onStop(id)}
-            onEnded={() => onStop(id)}
+      <div className="relative aspect-[9/16] w-full bg-black">
+        <video
+          ref={(node) => register(id, node)}
+          className="h-full w-full cursor-pointer object-cover"
+          preload="metadata"
+          playsInline
+          onClick={() => void onToggle(id)}
+          onPause={() => onStop(id)}
+          onEnded={() => onStop(id)}
+        >
+          <source src={src} type="video/mp4" />
+        </video>
+
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08),transparent_28%,transparent_72%,rgba(0,0,0,0.5))]" />
+
+        <div className="absolute inset-x-5 top-5 flex items-center justify-between gap-4">
+          <p className="font-sans text-[11px] uppercase tracking-[0.3em] text-[#d04c57]">
+            {tag}
+          </p>
+
+          <button
+            type="button"
+            onClick={() => void onToggle(id)}
+            className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-black/55 px-4 py-2 font-sans text-[11px] uppercase tracking-[0.28em] text-white transition hover:border-[#c30f1d]"
+            aria-label={`${isPlaying ? "Mettre en pause" : "Lire"} ${title}`}
           >
-            <source src={src} type="video/mp4" />
-          </video>
-
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08),transparent_28%,transparent_72%,rgba(0,0,0,0.5))]" />
-
-          <div className="absolute inset-x-5 top-5 flex items-center justify-between gap-4">
-            <p className="font-sans text-[11px] uppercase tracking-[0.3em] text-[#d04c57]">
-              {tag}
-            </p>
-
-            <span className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-black/55 px-4 py-2 font-sans text-[11px] uppercase tracking-[0.28em] text-white transition">
-              {isPlaying ? <Pause className="size-4" /> : <Play className="size-4" />}
-              {isPlaying ? "Pause" : "Play"}
-            </span>
-          </div>
+            {isPlaying ? <Pause className="size-4" /> : <Play className="size-4" />}
+            {isPlaying ? "Pause" : "Play"}
+          </button>
         </div>
       </div>
 
       <div className="border-t border-white/10 px-5 py-5">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <h2 className="mt-2 font-display text-[1.45rem] uppercase tracking-[0.08em] text-white sm:text-[1.7rem]">
-              {title}
-            </h2>
-          </div>
-        </div>
-
-        <p className="mt-4 max-w-[34ch] text-[0.98rem] leading-7 text-[#c8c8c8]">
-          {description}
+        <p className="font-sans text-[12px] uppercase tracking-[0.28em] text-white">
+          {title}
         </p>
       </div>
     </article>
@@ -106,8 +88,12 @@ export function VideoLibrary() {
     }
 
     if (nextVideo.paused) {
-      await nextVideo.play();
-      setActiveVideoId(id);
+      try {
+        await nextVideo.play();
+        setActiveVideoId(id);
+      } catch {
+        setActiveVideoId(null);
+      }
       return;
     }
 
@@ -120,26 +106,19 @@ export function VideoLibrary() {
   };
 
   return (
-    <section className="shell pb-16 sm:pb-20 lg:pb-24">
-      <SectionReveal className="grid gap-4 border-y border-white/10 py-8 sm:grid-cols-3 sm:gap-8">
+    <section className="shell pb-12 sm:pb-20 lg:pb-24">
+      <SectionReveal className="grid gap-4 border-y border-white/10 py-6 sm:grid-cols-3 sm:gap-8 sm:py-8">
         <div>
           <p className="font-sans text-[11px] uppercase tracking-[0.3em] text-[#d04c57]">
-            {String(videos.length).padStart(2, "0")} videos
+            Galerie vidéos
           </p>
           <p className="mt-3 text-sm uppercase tracking-[0.24em] text-[#a8a8a8]">
-            Event. Culture. Portrait.
+            Event. Culture. Lifestyle
           </p>
         </div>
-        <p className="text-sm leading-7 text-[#c6c6c6]">
-          Une sélection courte, pensée pour montrer le rythme, la présence et le
-          niveau d'image.
-        </p>
-        <p className="text-sm leading-7 text-[#c6c6c6]">
-          Chaque film peut être lancé directement ici, sans quitter la page.
-        </p>
       </SectionReveal>
 
-      <div className="mt-10 grid gap-8 lg:grid-cols-2">
+      <div className="mt-8 grid gap-4 sm:mt-10 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
         {videos.map((video, index) => (
           <SectionReveal key={video.title} delay={index * 0.06}>
             <VideoCard

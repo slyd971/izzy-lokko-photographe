@@ -11,15 +11,15 @@ import type { GalleryCategory, GalleryImage } from "@/lib/gallery";
 
 const statements = [
   "50+ events en 2025",
-  "Photographe attitré de Rap Contenders",
-  "Premium events, private events, nightlife, image culturelle",
+  "Vidéaste attitré de Rap Contenders",
+  "Premium events, private events, nightlife",
 ];
 
 const services = [
-  "Photo event premium",
-  "Video recap / aftermovie",
-  "Portrait & content image",
-  "Formats social reactifs",
+  "Video recap / After Movie",
+  "Street Video / Content",
+  "Social Media Content",
+  "Couverture Private Event Photo / Video",
 ];
 
 function BgVideo({
@@ -105,7 +105,7 @@ export function PressKitLanding({
     <main className="bg-[#050505] text-white">
       <SiteHeader current="home" />
 
-      <section className="relative flex min-h-[68vh] items-center justify-center overflow-hidden lg:min-h-[82vh]">
+      <section className="relative flex min-h-[72svh] items-center justify-center overflow-hidden pt-16 sm:min-h-[68vh] sm:pt-0 lg:min-h-[82vh]">
         <BgVideo
           src="/video-hero.mp4"
           className="absolute inset-0 h-full w-full object-cover object-[54%_42%] sm:object-[56%_36%] lg:object-[58%_28%]"
@@ -113,18 +113,18 @@ export function PressKitLanding({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.18),rgba(0,0,0,0.78)),linear-gradient(180deg,rgba(0,0,0,0.34),rgba(0,0,0,0.7))]" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(195,15,29,0.1),transparent_32%,transparent_68%,rgba(195,15,29,0.08))]" />
 
-        <SectionReveal className="relative z-10 px-5 text-center sm:px-6">
-          <h1 className="hero-name text-[2.35rem] uppercase tracking-[0.12em] text-white sm:text-[4.4rem] md:text-[5.6rem] lg:text-[6.6rem]">
+        <SectionReveal className="relative z-10 px-4 text-center sm:px-6">
+          <h1 className="hero-name text-[2.1rem] uppercase tracking-[0.1em] text-white sm:text-[4.4rem] md:text-[5.6rem] lg:text-[6.6rem]">
             Izzy Lokko
           </h1>
-          <p className="mt-4 font-sans text-[0.76rem] uppercase tracking-[0.24em] text-[#d7d7d7] sm:mt-5 sm:text-[1.02rem] sm:tracking-[0.42em] md:text-[1.08rem]">
+          <p className="mt-4 font-sans text-[0.72rem] uppercase tracking-[0.2em] text-[#d7d7d7] sm:mt-5 sm:text-[1.02rem] sm:tracking-[0.42em] md:text-[1.08rem]">
             Vidéaste . Photographe
           </p>
         </SectionReveal>
       </section>
 
       <section className="shell border-b border-white/10 py-4">
-        <SectionReveal className="flex items-center justify-center gap-6 sm:gap-10">
+        <SectionReveal className="flex flex-wrap items-center justify-center gap-5 sm:gap-10">
           <a
             href="mailto:cyril.hassiotis@hotmail.fr"
             aria-label="Email Izzy Lokko"
@@ -159,8 +159,8 @@ export function PressKitLanding({
         </SectionReveal>
       </section>
 
-      <section id="bio" className="shell py-12 lg:py-16">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <section id="bio" className="shell py-10 sm:py-12 lg:py-16">
+        <div className="grid gap-8 sm:gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <SectionReveal>
             <div className="overflow-hidden border border-white/10 bg-white/5">
               <Image
@@ -174,20 +174,20 @@ export function PressKitLanding({
             </div>
           </SectionReveal>
 
-          <SectionReveal delay={0.08} className="space-y-8">
+          <SectionReveal delay={0.08} className="space-y-6 sm:space-y-8">
             <p className="editorial-kicker">Bio</p>
-            <h2 className="max-w-[24ch] font-display text-[2rem] uppercase leading-[0.98] tracking-[0.08em] text-white sm:text-[2.5rem] lg:text-[2.9rem]">
+            <h2 className="max-w-[22ch] font-display text-[1.75rem] uppercase leading-[1.02] tracking-[0.06em] text-white sm:text-[2.5rem] lg:text-[2.9rem]">
               Un regard affûté, mobile, instinctif.
             </h2>
-            <div className="grid gap-8 border-t border-white/10 pt-6 md:grid-cols-2">
-              <p className="text-[1.02rem] leading-8 text-[#c5c5c5]">
+            <div className="grid gap-6 border-t border-white/10 pt-6 md:grid-cols-2 sm:gap-8">
+              <p className="text-[0.98rem] leading-7 text-[#c5c5c5] sm:text-[1.02rem] sm:leading-8">
                 Cyril aka Izzy Lokko est un photographe aguerri des soirées et events
                 parisiens. En seulement 4 ans dans la game, il a su apporter sa touche
                 personnelle et se démarque par son adaptabilité, sa polyvalence et sa
                 réactivité.
               </p>
-              <p className="text-[1.02rem] leading-8 text-[#c5c5c5]">
-                Photographe attitré de Rap Contenders, il est à l&apos;aise dans les
+              <p className="text-[0.98rem] leading-7 text-[#c5c5c5] sm:text-[1.02rem] sm:leading-8">
+                Vidéaste attitré de Rap Contenders, il est à l&apos;aise dans les
                 milieux chics comme dans les milieux plus street. Izzy est là pour
                 marquer les esprits avec un objectif affûté et une vraie lecture de
                 l&apos;ambiance.
@@ -198,10 +198,10 @@ export function PressKitLanding({
               {statements.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center justify-between gap-4 border-b border-white/10 pb-4 font-sans text-[12px] uppercase tracking-[0.14em] text-[#d6d6d6] sm:text-sm sm:tracking-[0.22em]"
+                  className="flex items-center justify-between gap-3 border-b border-white/10 pb-4 font-sans text-[11px] uppercase tracking-[0.12em] text-[#d6d6d6] sm:text-sm sm:tracking-[0.22em]"
                 >
                   <span>{item}</span>
-                  <span className="h-[1px] w-10 bg-[#c30f1d]" />
+                  <span className="h-[1px] w-8 shrink-0 bg-[#c30f1d] sm:w-10" />
                 </div>
               ))}
             </div>
@@ -213,7 +213,7 @@ export function PressKitLanding({
 
       <GalleryPreview categories={galleryCategories} images={galleryImages} />
 
-      <section id="services" className="shell py-12 lg:py-16">
+      <section id="services" className="shell py-10 sm:py-12 lg:py-16">
         <SectionReveal className="grid gap-8 border-y border-white/10 py-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="editorial-kicker">Services</p>
@@ -235,7 +235,7 @@ export function PressKitLanding({
         </SectionReveal>
       </section>
 
-      <section id="contact" className="shell py-12 lg:py-16">
+      <section id="contact" className="shell py-10 sm:py-12 lg:py-16">
         <SectionReveal className="border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))] p-6 sm:p-10 lg:p-14">
           <div className="grid gap-10 lg:grid-cols-[1.18fr_0.82fr] lg:items-stretch">
             <div className="space-y-8">

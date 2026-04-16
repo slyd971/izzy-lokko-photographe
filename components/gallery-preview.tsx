@@ -13,12 +13,12 @@ export function GalleryPreview({ categories, images }: GalleryPreviewProps) {
   const previewImages = images.slice(0, 5);
 
   return (
-    <section id="gallery" className="shell py-12 lg:py-16">
-      <SectionReveal className="flex flex-col gap-6 border-y border-white/10 py-10 lg:flex-row lg:items-end lg:justify-between">
+    <section id="gallery" className="shell py-10 sm:py-12 lg:py-16">
+      <SectionReveal className="flex flex-col gap-5 border-y border-white/10 py-8 sm:gap-6 sm:py-10 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-2xl">
-          <p className="editorial-kicker">Gallery</p>
-          <h2 className="mt-5 max-w-[22ch] font-display text-[2rem] uppercase leading-[0.98] tracking-[0.08em] text-white sm:text-[2.5rem] lg:text-[2.9rem]">
-            Une selection photo au meme niveau que le reste du press kit.
+          <p className="editorial-kicker">Photos</p>
+          <h2 className="mt-4 max-w-[20ch] font-display text-[1.75rem] uppercase leading-[1.02] tracking-[0.06em] text-white sm:mt-5 sm:text-[2.5rem] lg:text-[2.9rem]">
+            Retranscrire des emotions par la photo.
           </h2>
         </div>
 
@@ -41,7 +41,7 @@ export function GalleryPreview({ categories, images }: GalleryPreviewProps) {
         </div>
       </SectionReveal>
 
-      <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr_0.8fr]">
+      <div className="mt-8 grid gap-3 sm:mt-10 sm:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr_0.8fr]">
         {previewImages.map((image, index) => {
           const featured = index === 0;
 

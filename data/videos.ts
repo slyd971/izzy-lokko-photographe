@@ -31,17 +31,26 @@ export const videos: VideoItem[] = [
     description: "Un montage pensé pour laisser une trace nette après l'événement.",
   },
   {
-    title: "Private Event",
+    title: "La mif",
     src: "/video-lamif1.mp4",
-    tag: "Event",
+    tag: "La mif",
     description: "Une ambiance plus selective, plus nocturne, plus vive.",
   },
   {
-    title: "Portrait",
+    title: "Eva Modika",
     src: "/video-eva-modika.mp4",
-    tag: "Talent",
+    tag: "Eva Modika",
     description: "Un format image centré présence, allure et détail.",
   },
 ];
 
-export const homeVideos = videos.slice(0, 4);
+const homeVideoOrder = [
+  "/video-rap-contender-2.mp4",
+  "/video-soca-wkndr-1.mp4",
+  "/video-eva-modika.mp4",
+  "/video-lamif1.mp4",
+];
+
+export const homeVideos = homeVideoOrder
+  .map((src) => videos.find((video) => video.src === src))
+  .filter((video): video is VideoItem => Boolean(video));
