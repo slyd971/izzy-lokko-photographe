@@ -34,18 +34,25 @@ type VideoSelectionProps = {
 
 export function VideoSelection({ showCta = false }: VideoSelectionProps) {
   return (
-    <section id="videos" className="shell py-10 sm:py-14 lg:py-16">
+    <section id="videos" aria-labelledby="videos-title" className="shell py-10 sm:py-14 lg:py-16">
       <SectionReveal className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="editorial-kicker">Selection</p>
-          <h2 className="mt-4 max-w-[22ch] font-display text-[1.75rem] uppercase leading-[1.02] tracking-[0.06em] text-white sm:mt-5 sm:text-[2.5rem] lg:text-[2.9rem]">
-            UN aperçu du travail video d&apos;Izzy
+          <h2
+            id="videos-title"
+            className="mt-4 max-w-[22ch] font-display text-[1.75rem] uppercase leading-[1.02] tracking-[0.06em] text-white sm:mt-5 sm:text-[2.5rem] lg:text-[2.9rem]"
+          >
+            La vision d&apos;Izzy en vidéo
           </h2>
+          <p className="mt-4 max-w-[34rem] text-[0.98rem] leading-7 text-[#c4c4c4] sm:text-[1rem] sm:leading-8">
+            Aftermovies, recap events et formats courts pensés pour prolonger l&apos;image
+            d&apos;une soirée, d&apos;un artiste ou d&apos;une marque.
+          </p>
         </div>
 
         {showCta ? (
-          <Link className="line-button w-fit" href="/videos">
-            Voir videos
+          <Link className="line-button w-fit" href="/videos" aria-label="Voir la selection video complete d'Izzy Lokko">
+            Voir la sélection vidéo
             <ArrowRight className="size-4" />
           </Link>
         ) : null}
@@ -58,6 +65,8 @@ export function VideoSelection({ showCta = false }: VideoSelectionProps) {
               whileHover={{ scale: 0.995 }}
               transition={{ duration: 0.35 }}
               className="group relative min-h-[280px] overflow-hidden bg-black sm:min-h-[340px]"
+              aria-label={`${video.title}, ${video.description}`}
+              title={video.description}
             >
               <BgVideo
                 src={video.src}

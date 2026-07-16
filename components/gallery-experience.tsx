@@ -30,15 +30,21 @@ export function GalleryExperience({
               Galeries photos par event
             </p>
             <p className="mt-3 text-[0.98rem] leading-7 text-[#c6c6c6] sm:mt-4 sm:text-[1rem] sm:leading-8">
-              Capable de s&apos;adapter à tout type d&apos;event, voici un aperçu photo
-              du travail d&apos;Izzy Lokko.
+              Un aperçu photo du travail d&apos;Izzy Lokko pour les events, la nightlife
+              et les formats premium.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div
+            className="flex flex-wrap gap-2"
+            aria-label="Filtrer la galerie par projet"
+            role="group"
+          >
             <button
               type="button"
               onClick={() => setActiveCategory("all")}
+              aria-pressed={activeCategory === "all"}
+              aria-controls="gallery-grid"
               className={`inline-flex items-center rounded-full border px-4 py-2 font-sans text-[11px] uppercase tracking-[0.26em] transition ${
                 activeCategory === "all"
                   ? "border-[#c30f1d] bg-[#c30f1d]/15 text-white"
@@ -53,6 +59,8 @@ export function GalleryExperience({
                 key={category.slug}
                 type="button"
                 onClick={() => setActiveCategory(category.slug)}
+                aria-pressed={activeCategory === category.slug}
+                aria-controls="gallery-grid"
                 className={`inline-flex items-center rounded-full border px-4 py-2 font-sans text-[11px] uppercase tracking-[0.26em] transition ${
                   activeCategory === category.slug
                     ? "border-[#c30f1d] bg-[#c30f1d]/15 text-white"
@@ -66,7 +74,10 @@ export function GalleryExperience({
         </div>
       </SectionReveal>
 
-      <div className="mt-8 columns-1 gap-3 sm:mt-10 sm:gap-4 sm:columns-2 lg:columns-3">
+      <div
+        id="gallery-grid"
+        className="mt-8 columns-1 gap-3 sm:mt-10 sm:gap-4 sm:columns-2 lg:columns-3"
+      >
         {filteredImages.map((image, index) => (
           <SectionReveal key={image.src} delay={(index % 6) * 0.04} className="mb-3 break-inside-avoid sm:mb-4">
             <article className="group relative overflow-hidden border border-white/10 bg-black">

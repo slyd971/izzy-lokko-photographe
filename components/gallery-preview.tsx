@@ -11,20 +11,28 @@ type GalleryPreviewProps = {
 
 export function GalleryPreview({ categories, images }: GalleryPreviewProps) {
   const previewImages = images.slice(0, 5);
+  const previewCategories = categories.filter((category) => category.slug.toLowerCase() !== "lamif");
 
   return (
-    <section id="gallery" className="shell py-10 sm:py-12 lg:py-16">
+    <section id="gallery" aria-labelledby="gallery-title" className="shell py-10 sm:py-12 lg:py-16">
       <SectionReveal className="flex flex-col gap-5 border-y border-white/10 py-8 sm:gap-6 sm:py-10 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-2xl">
           <p className="editorial-kicker">Photos</p>
-          <h2 className="mt-4 max-w-[20ch] font-display text-[1.75rem] uppercase leading-[1.02] tracking-[0.06em] text-white sm:mt-5 sm:text-[2.5rem] lg:text-[2.9rem]">
-            Retranscrire des emotions par la photo.
+          <h2
+            id="gallery-title"
+            className="mt-4 max-w-[22ch] font-display text-[1.75rem] uppercase leading-[1.02] tracking-[0.06em] text-white sm:mt-5 sm:text-[2.5rem] lg:text-[2.9rem]"
+          >
+            Dans l&apos;Oeil d&apos;Izzy
           </h2>
+          <p className="mt-4 max-w-[34rem] text-[0.98rem] leading-7 text-[#c4c4c4] sm:text-[1rem] sm:leading-8">
+            Une sélection photo événementielle pour la nightlife, les private events et
+            les univers où chaque détail compte.
+          </p>
         </div>
 
         <div className="flex flex-col gap-4 sm:items-start lg:items-end">
           <div className="flex flex-wrap gap-2">
-            {categories.map((category) => (
+            {previewCategories.map((category) => (
               <span
                 key={category.slug}
                 className="inline-flex items-center rounded-full border border-white/10 px-3 py-2 font-sans text-[10px] uppercase tracking-[0.18em] text-[#d0d0d0] sm:px-4 sm:text-[11px] sm:tracking-[0.26em]"
@@ -34,8 +42,8 @@ export function GalleryPreview({ categories, images }: GalleryPreviewProps) {
             ))}
           </div>
 
-          <Link className="line-button w-fit" href="/gallery">
-            Voir la galerie
+          <Link className="line-button w-fit" href="/gallery" aria-label="Voir la galerie photo complete d'Izzy Lokko">
+            Voir la galerie photo
             <ArrowRight className="size-4" />
           </Link>
         </div>

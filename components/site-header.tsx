@@ -75,7 +75,7 @@ export function SiteHeader({ current = "home" }: SiteHeaderProps) {
           <Link href="/" className="shrink-0" onClick={closeMenu}>
             <Image
               src="/Logo%20Lokko%20TV%20Black.png"
-              alt="Lokko TV"
+              alt="Lokko TV, signature d'Izzy Lokko"
               width={220}
               height={70}
               className="h-auto w-[92px] invert"
@@ -121,6 +121,7 @@ export function SiteHeader({ current = "home" }: SiteHeaderProps) {
                 key={link.href}
                 href={resolveHref(link.href)}
                 className="font-sans text-[11px] uppercase tracking-[0.28em] text-[#bdbdbd]"
+                aria-current={isActiveLink(link.href) ? "page" : undefined}
                 onClick={closeMenu}
               >
                 {link.label}
@@ -137,7 +138,7 @@ export function SiteHeader({ current = "home" }: SiteHeaderProps) {
           >
             <Image
               src="/Logo%20Lokko%20TV%20Black.png"
-              alt="Lokko TV"
+              alt="Lokko TV, signature d'Izzy Lokko"
               width={220}
               height={70}
               className="h-auto w-[112px] invert"
@@ -153,6 +154,7 @@ export function SiteHeader({ current = "home" }: SiteHeaderProps) {
                 className={`relative pb-1 transition duration-300 hover:text-white ${
                   isActiveLink(link.href) ? "text-white" : "text-[#c8c8c8]"
                 }`}
+                aria-current={isActiveLink(link.href) ? "page" : undefined}
                 onClick={closeMenu}
               >
                 <span

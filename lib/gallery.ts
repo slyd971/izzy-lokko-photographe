@@ -35,7 +35,7 @@ function formatCategoryLabel(slug: string) {
 }
 
 function formatAlt(label: string, index: number) {
-  return `${label} - photo ${index + 1}`;
+  return `Izzy Lokko - ${label}, photo evenementielle ${index + 1} a Paris`;
 }
 
 export async function getGalleryCollection(): Promise<GalleryCollection> {

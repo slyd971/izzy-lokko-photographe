@@ -10,6 +10,7 @@ function VideoCard({
   title,
   src,
   tag,
+  description,
   isPlaying,
   onToggle,
   register,
@@ -19,6 +20,7 @@ function VideoCard({
   title: string;
   src: string;
   tag: string;
+  description: string;
   isPlaying: boolean;
   onToggle: (id: string) => Promise<void>;
   register: (id: string, node: HTMLVideoElement | null) => void;
@@ -32,6 +34,7 @@ function VideoCard({
           className="h-full w-full cursor-pointer object-cover"
           preload="metadata"
           playsInline
+          aria-label={`${title} - ${description}`}
           onClick={() => void onToggle(id)}
           onPause={() => onStop(id)}
           onEnded={() => onStop(id)}

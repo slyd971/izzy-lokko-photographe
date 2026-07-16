@@ -1,11 +1,30 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { VideoLibrary } from "@/components/video-library";
+import { siteOgImage } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Videos | Izzy Lokko",
+  title: "Videos",
   description:
-    "Selection video d'Izzy Lokko: recap, aftermovies, portrait et formats evenementiels.",
+    "Selection video d'Izzy Lokko : aftermovies, recap events, nightlife et formats premium captes a Paris et en deplacement.",
+  alternates: {
+    canonical: "/videos",
+  },
+  openGraph: {
+    title: "Videos | Izzy Lokko",
+    description:
+      "Selection video d'Izzy Lokko: recap, aftermovies, portraits et formats evenementiels captes a Paris et en deplacement.",
+    url: "/videos",
+    type: "website",
+    images: [
+      {
+        url: siteOgImage,
+        width: 1200,
+        height: 630,
+        alt: "Izzy Lokko | Videaste / Photographe a Paris",
+      },
+    ],
+  },
 };
 
 export default function VideosPage() {
@@ -19,11 +38,11 @@ export default function VideosPage() {
             <div className="max-w-3xl">
               <p className="editorial-kicker">Videos</p>
               <h1 className="mt-4 font-display text-[2rem] uppercase leading-[0.98] tracking-[0.06em] text-white sm:mt-5 sm:text-[4rem]">
-                Lokko Tv en action
+                Le travail vidéo d&apos;Izzy Lokko
               </h1>
               <p className="mt-4 max-w-xl text-[0.98rem] leading-7 text-[#c4c4c4] sm:mt-6 sm:text-[1.02rem] sm:leading-8">
-                Quelques vidéos pour montrer l&apos;univers de Lokko TV,
-                entre event, ambiance, portrait et image de scène.
+                Une sélection de recaps, aftermovies et formats événementiels pensés pour
+                les events, artistes, marques et nightlife.
               </p>
             </div>
           </div>

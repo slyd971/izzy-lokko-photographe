@@ -10,37 +10,37 @@ export const videos: VideoItem[] = [
     title: "Soca Wkndr 03",
     src: "/video-soca-wkndr-3.mp4",
     tag: "Event",
-    description: "Une ambiance de foule, de scene et de mouvement prise sur le vif.",
+    description: "Aftermovie event au rythme direct, pensé pour restituer l'énergie du public.",
   },
   {
     title: "Soca Wkndr 01",
     src: "/video-soca-wkndr-1.mp4",
     tag: "Event",
-    description: "Un format plus direct, pensé pour restituer l'energie du moment.",
+    description: "Couverture nightlife captée sur le vif, entre tension, mouvement et ambiance.",
   },
   {
     title: "Rap Contenders",
     src: "/video-rapcontender-1.mp4",
     tag: "Culture",
-    description: "L'energie de la scene, captee au plus pres.",
+    description: "Image de scène et lecture du public, avec un rendu net et percutant.",
   },
   {
     title: "Rap Contenders 02",
     src: "/video-rap-contender-2.mp4",
     tag: "Recap",
-    description: "Un montage pensé pour laisser une trace nette après l'événement.",
+    description: "Recap premium conçu pour prolonger l'impact d'un event après la soirée.",
   },
   {
     title: "La mif",
     src: "/video-lamif1.mp4",
     tag: "La mif",
-    description: "Une ambiance plus selective, plus nocturne, plus vive.",
+    description: "Ambiance sélective, nocturne et éditoriale, tenue avec un regard rapide et propre.",
   },
   {
     title: "Eva Modika",
     src: "/video-eva-modika.mp4",
     tag: "Eva Modika",
-    description: "Un format image centré présence, allure et détail.",
+    description: "Format artiste centré sur la présence, l'allure et le détail.",
   },
 ];
 

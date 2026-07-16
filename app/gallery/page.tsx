@@ -2,11 +2,30 @@ import type { Metadata } from "next";
 import { GalleryExperience } from "@/components/gallery-experience";
 import { SiteHeader } from "@/components/site-header";
 import { getGalleryCollection } from "@/lib/gallery";
+import { siteOgImage } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Photos | Izzy Lokko",
+  title: "Photos",
   description:
-    "Photos d'Izzy Lokko, organisées par catégories issues des dossiers du press kit.",
+    "Galerie photo d'Izzy Lokko avec selections d'evenements, nightlife, private events et reportages premium.",
+  alternates: {
+    canonical: "/gallery",
+  },
+  openGraph: {
+    title: "Photos | Izzy Lokko",
+    description:
+      "Galerie photo d'Izzy Lokko avec selections d'evenements, nightlife, portraits et reportages visuels.",
+    url: "/gallery",
+    type: "website",
+    images: [
+      {
+        url: siteOgImage,
+        width: 1200,
+        height: 630,
+        alt: "Izzy Lokko | Videaste / Photographe a Paris",
+      },
+    ],
+  },
 };
 
 export default async function GalleryPage() {
@@ -21,12 +40,11 @@ export default async function GalleryPage() {
           <div className="max-w-3xl">
             <p className="editorial-kicker">Photos</p>
             <h1 className="mt-4 font-display text-[2rem] uppercase leading-[0.98] tracking-[0.06em] text-white sm:mt-5 sm:text-[4rem]">
-              Les moments de vie captés par Lokko TV
+              Les moments de vie captés par l&apos;oeil d&apos;Izzy
             </h1>
             <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-[#c4c4c4] sm:mt-6 sm:text-[1.02rem] sm:leading-8">
-              Voici une selection du travail photo d&apos;Izzy Lokko : le but étant
-              de toujours conserver l&apos;authenticité de l&apos;instant flashé par
-              l&apos;objectif.
+              Une sélection photo pour conserver l&apos;ambiance, la présence et les
+              détails qui comptent sur un event, en nightlife ou en private event.
             </p>
           </div>
         </div>
