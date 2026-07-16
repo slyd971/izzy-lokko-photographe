@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
 import {
   brandSignature,
@@ -82,7 +83,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }
