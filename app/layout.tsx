@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
+import { SiteFooter } from "@/components/site-footer";
 import {
   brandSignature,
   getBaseUrl,
