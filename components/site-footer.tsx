@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { brandSignature, siteName } from "@/lib/site";
 
 export function SiteFooter() {
@@ -8,14 +7,17 @@ export function SiteFooter() {
         <p>
           &copy; 2026 {siteName} / {brandSignature}
         </p>
-        <Link
-          href="https://presskit.fr"
-          target="_blank"
-          rel="noreferrer noopener"
-          className="transition duration-300 hover:text-white"
-        >
-          Powered by presskit.fr
-        </Link>
+        <p>
+          Press kit photographe réalisé par{" "}
+          <a
+            href="https://www.presskit.fr/photographe"
+            target="_blank"
+            rel="noopener"
+            className="whitespace-nowrap underline underline-offset-4 transition duration-300 hover:text-white"
+          >
+            PressKit For You
+          </a>
+        </p>
       </div>
     </footer>
   );
